@@ -1,6 +1,6 @@
-class DropTableGenres < ActiveRecord::Migration
+class DropTableProducts < ActiveRecord::Migration
   def up
-    drop_table :genres
+    drop_table :products
   end
 
   def down

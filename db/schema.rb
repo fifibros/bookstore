@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305102225) do
+ActiveRecord::Schema.define(:version => 20140409102847) do
+
+  create_table "books", :force => true do |t|
+    t.string   "book_id"
+    t.string   "title"
+    t.string   "author"
+    t.decimal  "price"
+    t.string   "category"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at"
@@ -28,19 +39,13 @@ ActiveRecord::Schema.define(:version => 20130305102225) do
     t.float    "longitude"
   end
 
-  create_table "genres", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "lineitems", :force => true do |t|
-    t.integer  "product_id"
     t.integer  "order_id"
     t.integer  "quantity"
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "book_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -50,17 +55,6 @@ ActiveRecord::Schema.define(:version => 20130305102225) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "shipping"
-  end
-
-  create_table "products", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "image"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "genre_id"
   end
 
 end

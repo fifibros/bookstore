@@ -1,6 +1,6 @@
 Bookstore::Application.routes.draw do
 
-  resources :genres
+  resources :books
 
   get "sessions/new"
 
@@ -9,8 +9,6 @@ Bookstore::Application.routes.draw do
   resources :orders
 
   resources :lineitems
-
-  resources :products
   
   resources :sessions
   
