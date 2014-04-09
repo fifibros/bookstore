@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @order.customer_id %>
+</p>
+
+<p>
+  <b>Bought By</b>
+  <%= @order.customer.name %>
+</p>
+
+<p>
+  <b>Shipped:</b>
+  <%= @order.shipping %>
+</p>
+
+<p>
+  <b>Paymethod:</b>
+  <%= @order.paymethod %>
+</p>
+
+<p>
+	<p><b>Items on the order: </b></p>
+	<% @order.lineitems.each do |item| %>
+		<%= item.quantity %> &times; <%= item.product.title %> @	
+		<%= number_to_euro(item.product.price) %><br />		
+	<% end %>
+	<br \> <b>Total Price: </b><%= number_to_euro(@order.lineitems.inject(0) { |sum, p| sum + p.product.price })%>
+</p>
+
+<%= link_to 'Back', orders_path %>

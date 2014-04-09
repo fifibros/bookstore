@@ -1,0 +1,22 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Products for Sale</h1>
+<% if !@products.nil? %>
+	<% @products.each do |product| %>	
+		<%= image_tag(product.image, :size => "50x50") %>
+		<h3><%= product.title %></h3>
+		<%= sanitize(product.description) %>
+		<%= sanitize(product.genre.name) %>
+		<div class="price_line">
+			<span class="price"><%= number_to_euro(product.price) %></span>
+			<%= button_to 'Add to Cart', lineitems_path(product_id: product), remote: true %>
+		</div>
+	
+	<% end %>
+
+<% else %>
+	<p>There are no products for sale</p>
+<% end %>
+
