@@ -6,13 +6,11 @@ class ApplicationController < ActionController::Base
   def authorise
         unless signed_in?
            store_location
-           redirect_to signin_path, :notice => "Please sign in to access this 
-			page."
+           redirect_to signin_path, :notice => "Please sign in to access this page."
         end
   end 
   
-  
-  private							# Note the private
+  private
 	def store_location
        session[:return_to] = request.fullpath
    end
@@ -23,7 +21,7 @@ class ApplicationController < ActionController::Base
 		cart = Cart.create
 		session[:cart_id] = cart.id
 		end
-	cart		# Returns the cart object
+	cart
 end	
    
 end

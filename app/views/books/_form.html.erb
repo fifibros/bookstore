@@ -12,30 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :book_id %><br />
+    <%= f.label :book_id %> ID<br />
     <%= f.text_field :book_id %>
   </div>
+  
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+  
   <div class="field">
     <%= f.label :author %><br />
     <%= f.text_field :author %>
   </div>
+  
   <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
+  
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select :category, ["Programming", "Fiction", "Travel", "Health", "Children"] %>
   </div>
+  
+    <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  
+  Upload the book image:</b>
   <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
+    <%= f.label :image if @book.image?   %><br />
+    <%= f.file_field :image %>
   </div>
+  
+  <br>
+  <b>From a URL:</b>
+  <div>
+	<%= f.label :remote_image_url, "URL for image" %>
+	<%= f.text_field :remote_image_url %>
+  </div>
+  
+  <br>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

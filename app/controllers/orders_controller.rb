@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-	#@orders = Order.shipped 	# Show only the shipped orders
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +39,7 @@ class OrdersController < ApplicationController
   def new
 	@cart = current_cart
 	if @cart.lineitems.empty?
-	redirect_to root_path, notice: "Your cart is empty"
+	redirect_to root_path, notice: "Your cart is empty."
 	return
 	end
     @order = Order.new
@@ -62,7 +61,7 @@ class OrdersController < ApplicationController
       if @order.save
 			Cart.destroy(session[:cart_id])
 			session[:cart_id] = nil
-			format.html { redirect_to root_path, notice: 'Thank you for your order' }
+			format.html { redirect_to root_path, notice: 'Thank you for your order!' }
 			format.json { render json: @order, status: :created, location: @order }
       else
 			@cart = current_cart

@@ -41,12 +41,12 @@ class LineitemsController < ApplicationController
   # POST /lineitems.json
   def create
     @cart = current_cart
-	product = Product.find(params[:product_id])
-	@lineitem = @cart.add_product(product.id)
+	book = Book.find(params[:book_id])
+	@lineitem = @cart.add_book(book.id)
 	
     respond_to do |format|
       if @lineitem.save
-        format.html { redirect_to root_path, notice: 'Lineitem was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Book was successfully added to your cart.' }
 		format.js
         format.json { render json: @lineitem, status: :created, location: @lineitem }
       else

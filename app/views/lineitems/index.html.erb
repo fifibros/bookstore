@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Product</th>
+    <th>Book</th>
     <th>Order</th>
     <th>Quantity</th>
     <th>Cart</th>
@@ -13,7 +13,7 @@
 
 <% @lineitems.each do |lineitem| %>
   <tr>
-    <td><%= lineitem.product_id %></td>
+    <td><%= lineitem.book_id %></td>
     <td><%= lineitem.order_id %></td>
     <td><%= lineitem.quantity %></td>
     <td><%= lineitem.cart_id %></td>

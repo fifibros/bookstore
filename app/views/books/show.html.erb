@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag(@book.image, :size => "200x200") %>
+  
 <p>
-  <b>Book:</b>
+  <b>Book ID:</b>
   <%= @book.book_id %>
 </p>
 
@@ -17,7 +19,7 @@
 
 <p>
   <b>Price:</b>
-  <%= @book.price %>
+  <%= number_to_euro(@book.price) %>
 </p>
 
 <p>
@@ -26,10 +28,9 @@
 </p>
 
 <p>
-  <b>Image:</b>
-  <%= @book.image %>
+  <b>Quantity:</b>
+  <%= @book.quantity %>
 </p>
-
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

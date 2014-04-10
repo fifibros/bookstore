@@ -12,18 +12,36 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :customer_id %> ID<br />
+    <%= f.text_field :customer_id %>*
+  </div>
+  
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>*
   </div>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>*
   </div>
+  
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
-  <p>Fields with * are mandatory </p>
+
+  <div class="field">
+  <b><%= f.label :password %><br />
+  <%= f.password_field :password %>
+  </b>
+  </div>
+  
+  <div class="field">
+  <b><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+  </b>
+  
   <div class="actions">
     <%= f.submit "Register"%>
   </div>

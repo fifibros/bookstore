@@ -1,7 +1,8 @@
-<h1>Listing customers</h1>
+<h1>Customers</h1>
 
 <table>
   <tr>
+    <th>Customer ID</th>
     <th>Name</th>
     <th>Email</th>
     <th>Address</th>
@@ -12,12 +13,13 @@
 
 <% @customers.each do |customer| %>
   <tr>
+	<td><%= customer.customer_id %></td>
     <td><%= customer.name %></td>
     <td><%= customer.email %></td>
     <td><%= customer.address %></td>
-    <td><%= link_to 'Show', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= button_to 'View', customer, :method => :get %></td>
+    <td><%= button_to 'Edit', edit_customer_path(customer), :method => :get %></td>
+    <td><%= button_to 'Delete', customer, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

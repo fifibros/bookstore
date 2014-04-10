@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <b>Bought By</b>
+  <b>Bought By:</b>
   <%= @order.customer.name %>
 </p>
 
@@ -23,10 +23,11 @@
 <p>
 	<p><b>Items on the order: </b></p>
 	<% @order.lineitems.each do |item| %>
-		<%= item.quantity %> &times; <%= item.product.title %> @	
-		<%= number_to_euro(item.product.price) %><br />		
+		<%= item.quantity %> &times; <%= item.book.title %> @	
+		<%= number_to_euro(item.book.price) %><br />		
 	<% end %>
-	<br \> <b>Total Price: </b><%= number_to_euro(@order.lineitems.inject(0) { |sum, p| sum + p.product.price })%>
+	<br \> <b>Total Price: </b>
+	<%= number_to_euro(@order.lineitems.inject(0) { |sum, p| sum + p.book.price })%>
 </p>
 
 <%= link_to 'Back', orders_path %>
