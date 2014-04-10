@@ -1,5 +1,7 @@
 Bookstore::Application.routes.draw do
 
+  resources :comments
+
   resources :books
 
   resources :carts
@@ -17,6 +19,11 @@ Bookstore::Application.routes.draw do
   get "sessions/new"
   
   get "pages/home"
+  
+  resources :books do
+	resources :comments
+  end
+
   
    match '/signin',  :to => 'sessions#new'
    match '/signout', :to => 'sessions#destroy'
