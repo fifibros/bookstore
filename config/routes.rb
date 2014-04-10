@@ -24,10 +24,12 @@ Bookstore::Application.routes.draw do
 	resources :comments
   end
 
-  
    match '/signin',  :to => 'sessions#new'
    match '/signout', :to => 'sessions#destroy'
    match '/customer_orders', :to => 'orders#customerorders'
+   match '/search_by_title',  :to => 'books#search_by_title'
+   match '/search_by_author',  :to => 'books#search_by_author'
+   match '/search_by_category',  :to => 'books#search_by_category'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

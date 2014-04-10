@@ -20,6 +20,42 @@ class BooksController < ApplicationController
       format.json { render json: @book }
     end
   end
+  
+  # Search for a book by title
+  def search_by_title
+	@books = Book.search_by_title params[:q]
+	
+	unless @books.empty?
+		render 'index'
+	else
+		flash[:notice] = 'No book title matches that search.'
+		render 'index'
+	end
+end
+
+  # Search for a book by author
+  def search_by_author
+	@books = Book.search_by_author params[:q]
+	
+	unless @books.empty?
+		render 'index'
+	else
+		flash[:notice] = 'No author matches that search.'
+		render 'index'
+	end
+end
+
+  # Search for a book by category
+  def search_by_category
+	@books = Book.search_by_category params[:q]
+	
+	unless @books.empty?
+		render 'index'
+	else
+		flash[:notice] = 'No book category matches that search.'
+		render 'index'
+	end
+end
 
   # GET /books/new
   # GET /books/new.json
