@@ -5,10 +5,6 @@ class Book < ActiveRecord::Base
 	has_many :comments, :dependent => :destroy
 
 	mount_uploader :image, ImageUploader
-
-	def self.cheaper_than(price)
-		where (['price < ?', price])
-	end
 	
  def self.search_by_title(title)
    search_condition = title + "%"
