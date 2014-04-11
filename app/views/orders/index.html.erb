@@ -19,9 +19,8 @@
     <td><%= order.paymethod %></td>
 	<td><%= order.shipping %></td>
     <td><%= number_to_euro(order.lineitems.inject(0) { |sum, p| sum + p.book.price })%></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= button_to 'View', order, :method => :get %></td>
+    <td><%= button_to 'Delete', order, confirm: 'Are you sure you want to delete this order?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

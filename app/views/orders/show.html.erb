@@ -1,7 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Customer:</b>
+  <b>Customer ID:</b>
   <%= @order.customer_id %>
 </p>
 
@@ -21,7 +19,7 @@
 </p>
 
 <p>
-	<p><b>Items on the order: </b></p>
+	<p><b>Items on this Order: </b></p>
 	<% @order.lineitems.each do |item| %>
 		<%= item.quantity %> &times; <%= item.book.title %> @	
 		<%= number_to_euro(item.book.price) %><br />		

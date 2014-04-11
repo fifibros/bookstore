@@ -36,7 +36,7 @@
 	<% if !signed_in? %>
 			<li><%= button_to "Sign In", signin_path, :method => :get %></li>
 	<% else %>
-			<li><%= button_to "Show Orders", customer_orders_path, :method => :get %></li>
+			<li><%= button_to "My Orders", customer_orders_path, :method => :get %></li>
 			<li>Signed in as <b><%= @current_customer.name %></b></li>
 				<div class="profile_link">
 					<br>
