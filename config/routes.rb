@@ -23,6 +23,10 @@ Bookstore::Application.routes.draw do
   resources :books do
 	resources :comments
   end
+  
+  resources :customers do
+	resources :comments
+  end
 
    match '/signin',  :to => 'sessions#new'
    match '/signout', :to => 'sessions#destroy'

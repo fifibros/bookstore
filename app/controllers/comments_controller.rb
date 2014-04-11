@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+before_filter :authorise
 
 def create
     @book = Book.find params[:book_id]

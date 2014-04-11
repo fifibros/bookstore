@@ -32,14 +32,19 @@
 
 <div id="nav">
 <ul>
-	<li><%= button_to "Register", new_customer_path, :method => :get %></li>	
-	<% if !signed_in? %>		
-			<li><%= button_to "Login", signin_path, :method => :get %></li>
+<li><%= button_to "Register", new_customer_path, :method => :get %></li>
+	<% if !signed_in? %>
+			<li><%= button_to "Sign In", signin_path, :method => :get %></li>
 	<% else %>
 			<li><%= button_to "Show Orders", customer_orders_path, :method => :get %></li>
-			<li>Signed in as <%= @current_customer.name %></li>
+			<li>Signed in as <b><%= @current_customer.name %></b></li>
+				<div class="profile_link">
+					<br>
+					<br>
+					<li><%= link_to "My Profile", @current_customer %></li>
+				
 			<li><%= button_to "Sign Out", signout_path, :method => :get %></li>
-	<%end %>
+	<% end %>
 </ul>	
 </div>
 

@@ -26,6 +26,11 @@
   }
 }
 
+.box {
+ border: 1px solid #888888;
+ padding: 8px;
+}
+
 #notice {
   color: #000 !important;
   border: 2px solid red;
@@ -89,13 +94,15 @@
 }
 
 #nav {
-  float: right;
-}
-
-#nav {
-  background-color: #CC99CC;
-  padding: 0 0.7em;
-  white-space: nowrap;
+  	position: absolute;
+	top: 3px;
+	right: 6px;	
+	text-align: right;
+	font-size: 16px;
+	padding: 4px;
+	white-space: nowrap;
+	background-color: #CC99CC;
+    padding: 0 0.7em;
 }
 
 #nav ul {
@@ -120,9 +127,35 @@
 
 #nav ul li a:hover {
   text-decoration: underline;
-  }
+}
+
+.profile_link {
+	position: absolute;
+	top: 3px;
+	right: 6px;	
+	text-align: right;
+	font-size: 16px;
+	padding: 4px;
+	white-space: nowrap;
+	color: #E8E8E8;
+	font-weight: bold;
+}
+
+.profile_link a {
+	color: #E8E8E8;
+}
+
+.profile_link a:visited {
+	color: #E8E8E8;
+}
+
+.profile_link a:hover {
+	color: #585858;
+	background-color: #FFFFFF;
+	font-weight: bold;
+}
   
-  fieldset {
+fieldset {
   margin-left: 2px; margin-right: 2px;
   border: groove 2px ThreeDFace;
   padding: 0.35em 0.625em 0.75em;

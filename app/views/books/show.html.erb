@@ -42,7 +42,7 @@
   		<%= f.text_area :content, :rows => 3 %>
 		<br>
 		<br>
-		Rate this book out of 5:<%= f.select :rating, ["1", "2", "3", "4", "5"] %>
+		Rate this book out of 5: <%= f.select :rating, ["1", "2", "3", "4", "5"] %>
 		<br>
 		<br>
 		<div class="actions">
@@ -56,12 +56,15 @@
 	
 <% else %>
  <h3>What others said about this book:</h3>
+ 
   <% @book.comments.reverse.each do |comment| %>
+  <div class="box">
 	<p><b><%= comment.content %></b><br>
-         (Commented: <%= time_ago_in_words(comment.created_at) %> ago by 		
-		 <%= comment.customer.name %>)</p>
-		 Rated this book: <b><%= comment.rating %>/5</b>
+        (Commented: <%= time_ago_in_words(comment.created_at) %> ago by 		
+		<%= comment.customer.name %>)</p>
+		Rated this book: <b><%= comment.rating %>/5</b>
+		</div>
+		<br>
    <% end %>
    <br>
-   ____________________________________________________
 <% end %>

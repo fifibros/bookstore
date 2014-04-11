@@ -21,5 +21,4 @@ class Book < ActiveRecord::Base
    find(:all, :conditions => ['category LIKE  ?', search_condition])
  end
 
-
 end
